@@ -3,9 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Spinner, PrivateRoute } from '@/presentation/components'
 import { ApiContext } from '@/presentation/contexts'
 import { setCurrentAccountAdapter, getCurrentAccountAdapter } from '@/main/adapters'
-import { Home } from '@/presentation/pages'
 
 const Login = lazy(() => import ('@/main/factories/pages/login/login-factory'))
+const Home = lazy(() => import ('@/main/factories/pages/home/home-factory'))
 
 const Router: React.FC = () => {
   return (

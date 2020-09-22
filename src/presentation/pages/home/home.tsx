@@ -1,7 +1,8 @@
 import React from 'react'
+import { Header } from '@/presentation/components'
 
 const Home: React.FC = () => (
-  <h1>Home</h1>
+  <Header />
 )
 
 export default Home

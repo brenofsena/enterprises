@@ -11,7 +11,7 @@ const theme: DefaultTheme = {
     gray: '#383743',
     green: '#4caf50',
     greenyBlue: '#57bbbc',
-    mediumPink: 'background-image: linear-gradient(173deg, v#ee4c77 24%, #0d0430 66%)',
+    mediumPink: '#ee4c77',
     disabledBackground: '#748383',
     disabledColor:'#ccc',
     valid: '#4caf50',
