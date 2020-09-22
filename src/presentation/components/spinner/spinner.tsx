@@ -3,12 +3,14 @@ import * as S from './styles'
 
 const Spinner: React.FC = () => {
   return (
-    <S.Spinner data-testid="spinner">
-      <div />
-      <div />
-      <div />
-      <div />
-    </S.Spinner>
+    <S.Wrapper>
+      <S.Spinner data-testid="spinner">
+        <div />
+        <div />
+        <div />
+        <div />
+      </S.Spinner>
+    </S.Wrapper>
   )
 }
 

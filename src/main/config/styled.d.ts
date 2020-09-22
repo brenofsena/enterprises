@@ -11,6 +11,7 @@ declare module 'styled-components' {
       gray: string
       green: string
       greenyBlue: string
+      mediumPink: string
       disabledBackground: string
       disabledColor: string
       valid: string

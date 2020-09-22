@@ -1,4 +1,5 @@
 import { createGlobalStyle, DefaultTheme } from 'styled-components'
+import { rem } from 'polished'
 
 const theme: DefaultTheme = {
   colors: {
@@ -10,12 +11,13 @@ const theme: DefaultTheme = {
     gray: '#383743',
     green: '#4caf50',
     greenyBlue: '#57bbbc',
+    mediumPink: 'background-image: linear-gradient(173deg, v#ee4c77 24%, #0d0430 66%)',
     disabledBackground: '#748383',
     disabledColor:'#ccc',
     valid: '#4caf50',
     invalid: '#ef5350',
   },
-  borderRadius: '8px',
+  borderRadius: '3.6px',
   font: {
     fontFamily: 'Roboto',
     regular: 400,
@@ -54,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 50px;
     color: #fff;
     border-radius: ${theme.borderRadius};
-    font-size: 16px;
+    font-size: ${rem('18px')};
     border: none;
     padding: 0px 16px;
     outline: none;
@@ -70,7 +72,12 @@ const GlobalStyle = createGlobalStyle`
         opacity: 1;
       }
     }
-}
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `
 
 export { GlobalStyle, theme }

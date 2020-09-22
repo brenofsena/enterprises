@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { rem } from 'polished'
 
 export const InputWrap = styled.div`
   margin: 40px 0 0;
@@ -25,7 +26,7 @@ export const InputWrap = styled.div`
     content: "";
     width: 100%;
     height: 2px;
-    background: ${props => props.theme.colors.disabledColor};
+    background: ${props => props.theme.colors.gray};
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -47,22 +48,26 @@ export const InputWrap = styled.div`
   }
 
   input {
+    background: transparent;
     width: 100%;
     line-height: 24px;
     padding: 0px 40px 0px 8px;
 
     &:not(:placeholder-shown) + label {
       transform: scale(0.9) translateY(-20px);
+      opacity: 1;
     }
   }
 
   label {
     position: absolute;
     left: 8px;
-    color: ${props => props.theme.colors.disabledColor};
+    color: ${props => props.theme.colors.gray};
     cursor: text;
     transform-origin: 0%;
     transform: translateY(0);
     transition: transform 400ms ease;
+    font-size: ${rem('16px')};
+    opacity: 0.5;
   }
 `

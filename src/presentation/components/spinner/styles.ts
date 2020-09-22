@@ -30,6 +30,18 @@ const Spinner3 = keyframes`
   }
 `
 
+export const Wrapper = styled.div`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+  background-color: rgba(255, 255, 255, 0.6);
+`
+
 export const Spinner = styled.div`
   display: inline-block;
   position: absolute;
@@ -45,7 +57,7 @@ export const Spinner = styled.div`
     width: 13px;
     height: 13px;
     border-radius: 50%;
-    background: ${(props) => props.theme.colors.secondary};
+    background: ${(props) => props.theme.colors.greenyBlue};
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
     &:nth-child(1) {

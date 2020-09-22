@@ -5,6 +5,7 @@ import { Input, FormStatus, SubmitButton } from '@/presentation/components'
 import { FormContext, ApiContext } from '@/presentation/contexts'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/useCases'
+import Logo from '../../../../static/logo.png'
 
 type Props = {
   validation: Validation
@@ -62,9 +63,13 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
     <S.Wrapper>
       <FormContext.Provider value={{ state, setState }}>
         <S.Form data-testid="form"  onSubmit={handleSubmit}>
-          <S.Title>Login</S.Title>
-          <Input type="email" name="email" placeholder="Digite seu e-mail" />
-          <Input type="password" name="password" placeholder="Digite sua senha" />
+          <S.Logo src={Logo} alt="Ioasys" title="Ioasys" />
+          <S.Title>BEM-VINDO AO <br /> EMPRESAS</S.Title>
+          <S.Description>
+            Lorem ipsum dolor sit amet, contetur <br /> adipiscing elit. Nunc accumsan.
+          </S.Description>
+          <Input type="email" name="email" placeholder="E-mail" />
+          <Input type="password" name="password" placeholder="Senha" />
           <SubmitButton text="Entrar" />
           <FormStatus />
         </S.Form>

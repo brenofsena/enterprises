@@ -7,24 +7,39 @@ export const Wrapper = styled.div`
   justify-content: center;
   min-height: 100vh;
 `
-export const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  padding: ${rem('40px')};
-  background: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.borderRadius};
+export const Logo = styled.img`
+  margin: ${rem('16px')} 0;
   align-self: center;
-  box-shadow: ${props => props.theme.boxShadow};
-
-  button {
-    margin: 32px 0 0;
-  }
 `
 
 export const Title = styled.h2`
   color: ${props => props.theme.colors.gray};
   text-align: center;
-  font-size: 20px;
+  font-size: ${rem('24px')};
+  font-weight: ${props => props.theme.font.bold};
   text-transform: uppercase;
+  margin: ${rem('16px')} 0;
+`
+
+export const Description = styled.p`
+  color: ${props => props.theme.colors.gray};
+  text-align: center;
+  font-size: ${rem('18px')};
+  font-weight: ${props => props.theme.font.regular};
+  margin: ${rem('16px')} 0;
+`
+
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: ${rem('40px')};
+  background: transparent;
+  align-self: center;
+
+  button {
+    margin: 32px 0 0;
+    text-transform: uppercase;
+    font-weight: ${props => props.theme.font.bold};
+  }
 `
