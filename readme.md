@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./static/logo.png" width="100" alt="Stark Boilerplate" title="Stark Boilerplate" />
+<img width="200" src="./static/logo.png" alt="Ioasys" title="Ioasys" />
 </p>
 
 > ### Getting Started
