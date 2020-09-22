@@ -5,6 +5,7 @@ export const Header = styled.header`
   display: flex;
   background: ${props => props.theme.colors.mediumPink};
   justify-content: center;
+  width: 100%;
 `
 
 export const Wrapper = styled.div`
@@ -13,7 +14,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
   max-width: 1200px;
   flex-grow: 1;
-  padding: ${rem('30px')} 0;
+  padding: ${rem('32px')};
 `
 export const LogoWhite = styled.img`
   align-self: center;

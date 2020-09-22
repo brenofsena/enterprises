@@ -1,31 +1,45 @@
-import axios from 'axios'
-import React, { useEffect, useContext } from 'react'
+import * as S from './styles'
+import React, { useEffect, useState } from 'react'
 import { Header } from '@/presentation/components'
-import { ApiContext } from '@/presentation/contexts'
+import { EnterpriseList } from '@/presentation/pages/home/components'
+import { LoadEnterprises } from '@/domain/useCases'
+import { useErrorHandler } from '@/presentation/hooks'
 
-const Home: React.FC = () => {
-  const { getCurrentAccount } = useContext(ApiContext)
+type Props = {
+  loadEnterprises: any
+}
 
-  const fetchData = async (): Promise<any> => {
-    const account = getCurrentAccount()
-    const response = await axios.get('https://empresas.ioasys.com.br/api/v1/enterprises', {
-      headers: {
-        'access-token': account.accessToken,
-        client: account.client,
-        uid: account.uid
-      }
-    })
+const Home: React.FC<Props> = ({ loadEnterprises }: Props) => {
+  const handleError = useErrorHandler((error: Error) => {
+    setState(old => ({ ...old, error: error.message }))
+  })
 
-    console.log(response)
-    return response
-  }
+  const [state, setState] = useState({
+    enterprises: [] as LoadEnterprises.Model[],
+    error: '',
+    reload: false
+  })
+
+  const reload = (): void => setState(old => ({ enterprises: [], error: '', reload: !old.reload }))
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    loadEnterprises.loadAll()
+      .then(({enterprises}) => setState(old => ({ ...old, enterprises })))
+      .catch(handleError)
+  }, [state.reload])
 
   return (
-    <Header />
+    <S.Wrapper>
+      <Header />
+
+      <S.ContentWrapper>
+        {state.error
+          ? <h3>Erro!</h3>
+          : <EnterpriseList enterprises={state.enterprises} />
+        }
+      </S.ContentWrapper>
+
+    </S.Wrapper>
   )
 }
 
