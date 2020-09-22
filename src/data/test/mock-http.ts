@@ -6,6 +6,12 @@ export const mockPostRequest = (): HttpPostParams => ({
   body: faker.random.objectElement()
 })
 
+export const mockPostHeaders = (): any => ({
+  accessToken: faker.random.uuid(),
+  client: faker.random.word(),
+  uid: faker.random.uuid()
+})
+
 export const mockGetRequest = (): HttpGetParams => ({
   url: faker.internet.url(),
   headers: faker.random.objectElement()
@@ -15,13 +21,17 @@ export class HttpPostClientSpy<R = any> implements HttpPostClient<R> {
   url?: string
   body?: any
   response: HttpResponse<R> = {
-    statusCode: HttpStatusCode.ok
+    statusCode: HttpStatusCode.ok,
+    headers:  {
+      'access-token': faker.random.uuid(),
+      client: faker.random.word(),
+      uid: faker.random.uuid()
+    }
   }
 
   async post (params: HttpPostParams): Promise<HttpResponse<R>> {
     this.url = params.url
     this.body = params.body
-
     return this.response
   }
 }

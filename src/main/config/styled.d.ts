@@ -10,6 +10,11 @@ declare module 'styled-components' {
       black: string
       gray: string
       green: string
+      greenyBlue: string
+      disabledBackground: string
+      disabledColor: string
+      valid: string
+      invalid: string
     }
     borderRadius: string
     font: {

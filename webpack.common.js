@@ -1,6 +1,7 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 
 require('dotenv').config()
 
@@ -58,6 +59,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './index.html'),
       inject: true,
+    }),
+    new DefinePlugin({
+      'process.env.API_URL': JSON.stringify('https://empresas.ioasys.com.br/api/v1'),
     }),
   ],
 }

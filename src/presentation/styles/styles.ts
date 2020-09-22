@@ -7,8 +7,13 @@ const theme: DefaultTheme = {
     background: '#ebe9d7',
     white: '#fff',
     black: '#000',
-    gray: '#959595',
+    gray: '#383743',
     green: '#4caf50',
+    greenyBlue: '#57bbbc',
+    disabledBackground: '#748383',
+    disabledColor:'#ccc',
+    valid: '#4caf50',
+    invalid: '#ef5350',
   },
   borderRadius: '8px',
   font: {
@@ -22,18 +27,50 @@ const theme: DefaultTheme = {
 
 const GlobalStyle = createGlobalStyle`
   * {
-    margin: 0;
+    font-size: 16px;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: ${theme.font.fontFamily}
   }
 
   html {
     font-size: 75.5%;
   }
 
-  body{
-    font-family: ${theme.font.fontFamily}
+  body {
+    background: ${theme.colors.background};
   }
+
+  input[type="password"],
+  input[type="email"],
+  input[type="text"] {
+    border: none;
+    outline: none;
+  }
+
+  button {
+    background-color: ${theme.colors.greenyBlue};
+    line-height: 50px;
+    color: #fff;
+    border-radius: ${theme.borderRadius};
+    font-size: 16px;
+    border: none;
+    padding: 0px 16px;
+    outline: none;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:disabled {
+      background-color: ${theme.colors.disabledBackground};
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+}
 `
 
 export { GlobalStyle, theme }
