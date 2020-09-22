@@ -3,7 +3,7 @@ import { makeLoginValidation } from './login-validation-factory'
 import { makeRemoteAuthentication } from '@/main/factories/usecases'
 import { Login } from '@/presentation/pages'
 
-export const makeLogin: React.FC = () => {
+const makeLogin: React.FC = () => {
   return (
     <Login
       authentication={makeRemoteAuthentication()}
@@ -11,3 +11,5 @@ export const makeLogin: React.FC = () => {
     />
   )
 }
+
+export default makeLogin
