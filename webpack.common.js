@@ -3,8 +3,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 
-require('dotenv').config()
-
 module.exports = {
   watchOptions: {
     aggregateTimeout: 300,

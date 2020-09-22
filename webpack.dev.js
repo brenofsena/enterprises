@@ -1,7 +1,6 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 const path = require('path')
-const Dotenv = require('dotenv-webpack')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -14,5 +13,4 @@ module.exports = merge(common, {
     historyApiFallback: true,
     writeToDisk: true,
   },
-  plugins: [new Dotenv()],
 })
