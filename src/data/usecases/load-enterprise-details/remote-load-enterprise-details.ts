@@ -11,6 +11,7 @@ export class RemoteLoadEnterpriseDetails implements LoadEnterpriseDetails {
   async load(): Promise<LoadEnterpriseDetails.Model> {
     const httpResponse = await this.httpGetClient.get({ url: this.url })
     const remoteEnterpriseDetails = httpResponse.body
+
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         return remoteEnterpriseDetails
