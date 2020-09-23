@@ -4,9 +4,10 @@ import { Header, Error } from '@/presentation/components'
 import { EnterpriseListItem } from '@/presentation/pages/enterprise-list/components'
 import { LoadEnterprises } from '@/domain/useCases'
 import { useErrorHandler } from '@/presentation/hooks'
+import { SearchContext } from '@/presentation/contexts'
 
 type Props = {
-  loadEnterprises: any
+  loadEnterprises: LoadEnterprises
 }
 
 const EnterpriseList: React.FC<Props> = ({ loadEnterprises }: Props) => {
@@ -26,21 +27,26 @@ const EnterpriseList: React.FC<Props> = ({ loadEnterprises }: Props) => {
   useEffect(() => {
     loadEnterprises
       .loadAll()
-      .then(({ enterprises }) => setState((old) => ({ ...old, enterprises })))
+      .then((response) => {
+        const { enterprises }: any = response
+        setState((old) => ({ ...old, enterprises }))
+      })
       .catch(handleError)
   }, [state.reload])
 
   return (
     <S.Wrapper>
-      <Header />
+      <SearchContext.Provider value={{ setEnterprises: setState }}>
+        <Header />
 
-      <S.ContentWrapper>
-        {state.error ? (
-          <Error error={state.error} reload={reload} />
-        ) : (
-          <EnterpriseListItem enterprises={state.enterprises} />
-        )}
-      </S.ContentWrapper>
+        <S.ContentWrapper>
+          {state.error ? (
+            <Error error={state.error} reload={reload} />
+          ) : (
+            <EnterpriseListItem enterprises={state.enterprises} />
+          )}
+        </S.ContentWrapper>
+      </SearchContext.Provider>
     </S.Wrapper>
   )
 }

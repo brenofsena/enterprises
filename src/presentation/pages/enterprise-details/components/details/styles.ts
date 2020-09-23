@@ -26,4 +26,5 @@ export const Description = styled.p`
   margin: ${rem('16px')} 0;
   color: #8d8c8c;
   font-size: ${rem('24px')};
+  width: 100%;
 `

@@ -6,7 +6,7 @@ import { useErrorHandler } from '@/presentation/hooks'
 import { EnterpriseDetailsData } from '@/presentation/pages/enterprise-details/components'
 
 type Props = {
-  loadEnterpriseDetails: any
+  loadEnterpriseDetails: LoadEnterpriseDetails
 }
 
 const EnterpriseDetails: React.FC<Props> = ({ loadEnterpriseDetails }: Props) => {
@@ -27,11 +27,12 @@ const EnterpriseDetails: React.FC<Props> = ({ loadEnterpriseDetails }: Props) =>
   useEffect(() => {
     loadEnterpriseDetails
       .load()
-      .then(({ enterprise }) => setState((old) => ({ ...old, enterprise })))
+      .then((response) => {
+        const { enterprise }: any = response
+        setState((old) => ({ ...old, enterprise }))
+      })
       .catch(handleError)
   }, [state.reload])
-
-  console.log(state)
 
   return (
     <S.Wrapper>

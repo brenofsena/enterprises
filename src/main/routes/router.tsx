@@ -1,18 +1,10 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, useState } from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Spinner, PrivateRoute } from '@/presentation/components'
 import { ApiContext } from '@/presentation/contexts'
 import { setCurrentAccountAdapter, getCurrentAccountAdapter } from '@/main/adapters'
-
-const Login = lazy(() => import('@/main/factories/pages/login/login-factory'))
-
-const EnterpriseList = lazy(
-  () => import('@/main/factories/pages/enterprise-list/enterprise-list-factory'),
-)
-
-const EnterpriseDetails = lazy(
-  () => import('@/main/factories/pages/enterprise-details/enterprise-details-factory'),
-)
+import { makeRemoteSearchEnterprises } from '@/main/factories/usecases'
+import { makeLogin, makeEnterpriseList, makeEnterpriseDetails } from '@/main/factories/pages'
 
 const Router: React.FC = () => {
   return (
@@ -20,14 +12,15 @@ const Router: React.FC = () => {
       value={{
         setCurrentAccount: setCurrentAccountAdapter,
         getCurrentAccount: getCurrentAccountAdapter,
+        searchEnterprises: makeRemoteSearchEnterprises,
       }}
     >
       <BrowserRouter>
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <Route path="/login" exact component={Login} />
-            <PrivateRoute path="/" exact component={EnterpriseList} />
-            <PrivateRoute path="/empresas/:id" component={EnterpriseDetails} />
+            <Route path="/login" exact component={makeLogin} />
+            <PrivateRoute path="/" exact component={makeEnterpriseList} />
+            <PrivateRoute path="/empresas/:id" component={makeEnterpriseDetails} />
           </Switch>
         </Suspense>
       </BrowserRouter>

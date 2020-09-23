@@ -60,6 +60,7 @@ module.exports = {
     }),
     new DefinePlugin({
       'process.env.API_URL': JSON.stringify('https://empresas.ioasys.com.br/api/v1'),
+      'process.env.IMAGES_URL': JSON.stringify('https://empresas.ioasys.com.br'),
     }),
   ],
 }

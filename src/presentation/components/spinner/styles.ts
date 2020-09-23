@@ -1,32 +1,11 @@
 import styled, { keyframes } from 'styled-components'
 
-const Spinner1 = keyframes`
+const Ring = keyframes`
   0% {
-    transform: scale(0);
+    transform: rotate(0deg);
   }
-
   100% {
-    transform: scale(1);
-  }
-`
-
-const Spinner2 = keyframes`
-  0% {
-    transform: translate(0, 0);
-  }
-
- 100% {
-    transform: translate(24px, 0);
-  }
-`
-
-const Spinner3 = keyframes`
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
+    transform: rotate(360deg);
   }
 `
 
@@ -44,48 +23,38 @@ export const Wrapper = styled.div`
 
 export const Spinner = styled.div`
   display: inline-block;
-  position: absolute;
+  position: relative;
   width: 80px;
-  height: 12px;
+  height: 80px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 
   div {
+    box-sizing: border-box;
+    display: block;
     position: absolute;
-    top: 0px;
-    width: 13px;
-    height: 13px;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid ${(props) => props.theme.colors.greenyBlue};
     border-radius: 50%;
-    background: ${(props) => props.theme.colors.greenyBlue};
-    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    animation-name: ${Ring};
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+    animation-iteration-count: infinite;
+    border-color: ${(props) => props.theme.colors.greenyBlue} transparent transparent transparent;
 
     &:nth-child(1) {
-      left: 8px;
-      animation-name: ${Spinner1};
-      animation-duration: 0.6s;
-      animation-iteration-count: infinite;
+      animation-delay: -0.45s;
     }
 
     &:nth-child(2) {
-      left: 8px;
-      animation-name: ${Spinner2};
-      animation-duration: 0.6s;
-      animation-iteration-count: infinite;
+      animation-delay: -0.3s;
     }
 
     &:nth-child(3) {
-      left: 32px;
-      animation-name: ${Spinner2};
-      animation-duration: 0.6s;
-      animation-iteration-count: infinite;
-    }
-
-    &:nth-child(4) {
-      left: 56px;
-      animation-name: ${Spinner3};
-      animation-duration: 0.6s;
-      animation-iteration-count: infinite;
+      animation-delay: -0.15s;
     }
   }
 `
