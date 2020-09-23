@@ -16,7 +16,7 @@ script:
 deploy:
   provider: heroku
   api_key: $HEROKU_API
-  app: enterprises
+  app: ioasys_enterprises
   skip_cleanup: true
 
 notifications:
