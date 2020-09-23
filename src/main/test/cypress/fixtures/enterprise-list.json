@@ -1,0 +1,13 @@
+{
+  "enterprises": [
+    {
+      "id": "1",
+      "enterprise_name": "any_enterprise_name",
+      "enterprise_type": {
+        "enterprise_type_name": "any_enterprise_type_name"
+      },
+      "city": "any_city",
+      "photo": "any_photo"
+    }
+  ]
+}

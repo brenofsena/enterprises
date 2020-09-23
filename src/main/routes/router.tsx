@@ -5,9 +5,11 @@ import { ApiContext } from '@/presentation/contexts'
 import { setCurrentAccountAdapter, getCurrentAccountAdapter } from '@/main/adapters'
 
 const Login = lazy(() => import('@/main/factories/pages/login/login-factory'))
+
 const EnterpriseList = lazy(
   () => import('@/main/factories/pages/enterprise-list/enterprise-list-factory'),
 )
+
 const EnterpriseDetails = lazy(
   () => import('@/main/factories/pages/enterprise-details/enterprise-details-factory'),
 )

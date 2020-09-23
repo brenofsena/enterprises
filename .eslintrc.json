@@ -37,6 +37,7 @@
     "import/export": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "jest/expect-expect": "off"
+    "jest/expect-expect": "off",
+    "jest/valid-expect-in-promise": "off"
   }
 }
