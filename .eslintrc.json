@@ -32,7 +32,7 @@
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/promise-function-async": "off",
-    "@typescript-eslint/space-before-function-parent": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
     "no-redeclare": "off",
     "import/export": "off",
     "react/jsx-uses-react": "error",
