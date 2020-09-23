@@ -21,10 +21,10 @@ const Header: React.FC<Props> = ({ enterpriseName }: Props) => {
     <S.Header>
       <S.Wrapper>
         <S.Info>
-          <S.Back onClick={goBack}>
+          <S.Back onClick={goBack} data-testid="back-button">
             <img src={IconArrowLeft} />
           </S.Back>
-          <S.Name>{enterpriseName}</S.Name>
+          <S.Name data-testid="enterprise-name">{enterpriseName}</S.Name>
         </S.Info>
 
         <S.Logout>

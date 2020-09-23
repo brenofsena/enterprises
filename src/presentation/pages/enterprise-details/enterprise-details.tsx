@@ -40,7 +40,7 @@ const EnterpriseDetails: React.FC<Props> = ({ loadEnterpriseDetails }: Props) =>
   return (
     <S.Wrapper>
       <HeaderDetails enterpriseName={state?.enterprise?.enterprise_name} />
-      <S.ContentWrapper>
+      <S.ContentWrapper data-testid="enterprise-details">
         {state.enterprise && <EnterpriseDetailsData enterprise={state.enterprise} />}
         {state.isLoading && <Spinner />}
         {state.error && <Error error={state.error} reload={reload} />}

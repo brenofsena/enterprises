@@ -33,7 +33,7 @@ const Search: React.FC = () => {
   }
 
   const onKeyDown = (event: any): void => {
-    if (event.key === 13) {
+    if (event.keyCode === 13) {
       searchResults(event.target.value)
     }
   }
