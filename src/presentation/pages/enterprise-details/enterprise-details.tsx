@@ -11,7 +11,7 @@ type Props = {
 
 const EnterpriseDetails: React.FC<Props> = ({ loadEnterpriseDetails }: Props) => {
   const handleError = useErrorHandler((error: Error) => {
-    setState((old) => ({ ...old, surveyResult: null, error: error.message }))
+    setState((old) => ({ ...old, enterprise: null, error: error.message }))
   })
 
   const [state, setState] = useState({

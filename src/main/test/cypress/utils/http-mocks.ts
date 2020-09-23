@@ -23,11 +23,6 @@ export const mockForbiddenError = (url: RegExp, method: string): void => {
     response: {
       error: faker.random.words(),
     },
-    // headers: {
-    //   'access-token': 'any_token',
-    //   'client': 'any_client',
-    //   'uid': 'any_uid'
-    // }
   }).as('request')
 }
 

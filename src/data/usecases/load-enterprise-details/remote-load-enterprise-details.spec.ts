@@ -58,7 +58,7 @@ describe('RemoteLoadEnterpriseDetails', () => {
     await expect(promise).rejects.toThrow(new UnexpectedError())
   })
 
-  test('Should return a SurveyResult on 200', async () => {
+  test('Should return a EnterpriseDetails on 200', async () => {
     const { sut, httpGetClientSpy } = makeSut()
     const httpResult = mockRemoteEnterpriseDetails()
     httpGetClientSpy.response = {
