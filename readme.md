@@ -2,6 +2,12 @@
 <img width="200" src="./static/logo.png" alt="Ioasys" title="Ioasys" />
 </p>
 
+<p align="center" style="margin: 40px 0;">
+<a href='https://travis-ci.org/brenofsena/enterprises'><img src='https://travis-ci.org/brenofsena/enterprises.svg?branch=master' alt='Build Status' /></a>
+<a href='https://coveralls.io/github/brenofsena/enterprises'><img src='https://coveralls.io/repos/github/brenofsena/enterprises/badge.svg' alt='Coverage Status' /></a>
+<a href="https://snyk.io/test/github/brenofsena/enterprises?targetFile=package.json"><img src="https://snyk.io/test/github/brenofsena/enterprises/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/brenofsena/enterprises?targetFile=package.json" style="max-width:100%;"></a>
+</p>
+
 > ### Getting Started
 
 ```sh
