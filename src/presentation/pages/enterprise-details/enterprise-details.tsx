@@ -1,9 +1,12 @@
 import * as S from './styles'
 import React, { useState, useEffect } from 'react'
-import { Header, Spinner, Error } from '@/presentation/components'
+import { Spinner, Error } from '@/presentation/components'
 import { LoadEnterpriseDetails } from '@/domain/useCases'
 import { useErrorHandler } from '@/presentation/hooks'
-import { EnterpriseDetailsData } from '@/presentation/pages/enterprise-details/components'
+import {
+  EnterpriseDetailsData,
+  HeaderDetails,
+} from '@/presentation/pages/enterprise-details/components'
 
 type Props = {
   loadEnterpriseDetails: LoadEnterpriseDetails
@@ -36,7 +39,7 @@ const EnterpriseDetails: React.FC<Props> = ({ loadEnterpriseDetails }: Props) =>
 
   return (
     <S.Wrapper>
-      <Header />
+      <HeaderDetails enterpriseName={state?.enterprise?.enterprise_name} />
       <S.ContentWrapper>
         {state.enterprise && <EnterpriseDetailsData enterprise={state.enterprise} />}
         {state.isLoading && <Spinner />}

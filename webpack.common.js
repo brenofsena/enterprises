@@ -26,7 +26,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
+        test: /\.(svg|png|jpg|gif|eot|ttf|woff|woff2)$/,
         use: [
           {
             loader: 'file-loader',
@@ -50,6 +50,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.css'],
     alias: {
       '@': path.join(__dirname, 'src'),
+      '@static': path.join(__dirname, 'static'),
     },
   },
   plugins: [
@@ -60,7 +61,6 @@ module.exports = {
     }),
     new DefinePlugin({
       'process.env.API_URL': JSON.stringify('https://empresas.ioasys.com.br/api/v1'),
-      'process.env.IMAGES_URL': JSON.stringify('https://empresas.ioasys.com.br'),
     }),
   ],
 }

@@ -51,7 +51,7 @@ export const InputWrap = styled.div`
     background: transparent;
     width: 100%;
     line-height: 24px;
-    padding: 0px 40px 0px 8px;
+    padding: 0px 40px 0px 30px;
 
     &:not(:placeholder-shown) + label {
       transform: scale(0.9) translateY(-20px);
@@ -61,7 +61,7 @@ export const InputWrap = styled.div`
 
   label {
     position: absolute;
-    left: 8px;
+    left: 30px;
     color: ${(props) => props.theme.colors.gray};
     cursor: text;
     transform-origin: 0%;
@@ -70,4 +70,11 @@ export const InputWrap = styled.div`
     font-size: ${rem('16px')};
     opacity: 0.5;
   }
+`
+
+export const Icon = styled.img`
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 `

@@ -13,7 +13,7 @@ const EnterpriseItem: React.FC<Props> = ({ enterprise }: Props) => {
       <S.Anchor data-testid="link" to={`/empresas/${enterprise.id}`}>
         <S.Image
           data-testid="image"
-          src={`${process.env.IMAGES_URL}/${enterprise.photo}`}
+          src={`https://empresas.ioasys.com.br/${enterprise.photo}`}
           alt={enterprise.enterprise_name}
           title={enterprise.enterprise_name}
         />

@@ -1,39 +1,39 @@
 import * as S from './styles'
 import React, { useState, useEffect, useContext } from 'react'
 import { useDebounce } from '@/presentation/hooks'
-import { ApiContext, SearchContext } from '@/presentation/contexts'
+import { SearchContext } from '@/presentation/contexts'
 import { Spinner } from '@/presentation/components'
-import IconSearch from '../../../../static/icon-search.png'
+import IconSearch from '@static/icon-search.png'
 
 const Search: React.FC = () => {
-  const { searchEnterprises } = useContext(ApiContext)
-  const { setEnterprises } = useContext(SearchContext)
+  const { searchEnterprises, setEnterprises, handleError } = useContext(SearchContext)
   const [userInput, setUserInput] = useState('')
   const [isSearching, setIsSearching] = useState(false)
-  const debouncedSearchTerm = useDebounce(userInput, 1000)
+  const debouncedSearchTerm = useDebounce(userInput, 500)
 
   const searchResults = (search: string): void => {
     setIsSearching(true)
 
-    searchEnterprises()
+    searchEnterprises
       .search(search)
       .then((response) => {
         const { enterprises }: any = response
         setEnterprises({ enterprises, error: '', reload: false })
-        setIsSearching(false)
       })
+      .catch(handleError)
+      .finally(() => setIsSearching(false))
   }
 
   useEffect(() => {
     searchResults(debouncedSearchTerm)
   }, [debouncedSearchTerm])
 
-  const onChange = (event): void => {
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setUserInput(event.target.value)
   }
 
-  const onKeyDown = (event): void => {
-    if (event.keyCode === 13) {
+  const onKeyDown = (event: any): void => {
+    if (event.key === 13) {
       searchResults(event.target.value)
     }
   }

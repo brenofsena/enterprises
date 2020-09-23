@@ -4,6 +4,7 @@ export interface LoadEnterpriseDetails {
 
 export namespace LoadEnterpriseDetails {
   export type Model = {
+    enterprise_name: string
     photo: string
     description: string
   }

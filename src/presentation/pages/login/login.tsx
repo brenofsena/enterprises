@@ -5,7 +5,9 @@ import { Input, FormStatus, SubmitButton } from '@/presentation/components'
 import { FormContext, ApiContext } from '@/presentation/contexts'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/useCases'
-import Logo from '../../../../static/logo.png'
+import Logo from '@static/logo.png'
+import IconEmail from '@static/icon-email.svg'
+import IconLock from '@static/icon-lock.svg'
 
 type Props = {
   validation: Validation
@@ -22,17 +24,21 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
     password: '',
     emailError: '',
     passwordError: '',
-    mainError: ''
+    mainError: '',
   })
 
-  useEffect(() => { validate('email') }, [state.email])
-  useEffect(() => { validate('password') }, [state.password])
+  useEffect(() => {
+    validate('email')
+  }, [state.email])
+  useEffect(() => {
+    validate('password')
+  }, [state.password])
 
   const validate = (field: string): void => {
     const { email, password } = state
     const formData = { email, password }
-    setState(old => ({ ...old, [`${field}Error`]: validation.validate(field, formData) }))
-    setState(old => ({ ...old, isFormInvalid: !!old.emailError || !!old.passwordError }))
+    setState((old) => ({ ...old, [`${field}Error`]: validation.validate(field, formData) }))
+    setState((old) => ({ ...old, isFormInvalid: !!old.emailError || !!old.passwordError }))
   }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -41,20 +47,20 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
     try {
       if (state.isLoading || state.isFormInvalid) return
 
-      setState(old => ({ ...old, isLoading: true }))
+      setState((old) => ({ ...old, isLoading: true }))
 
       const account = await authentication.auth({
         email: state.email,
-        password: state.password
+        password: state.password,
       })
 
       setCurrentAccount(account)
       history.replace('/')
     } catch (error) {
-      setState(old => ({
+      setState((old) => ({
         ...old,
         isLoading: false,
-        mainError: error.message
+        mainError: error.message,
       }))
     }
   }
@@ -62,14 +68,16 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
   return (
     <S.Wrapper>
       <FormContext.Provider value={{ state, setState }}>
-        <S.Form data-testid="form"  onSubmit={handleSubmit}>
+        <S.Form data-testid="form" onSubmit={handleSubmit}>
           <S.Logo src={Logo} alt="Ioasys" title="Ioasys" />
-          <S.Title>BEM-VINDO AO <br /> EMPRESAS</S.Title>
+          <S.Title>
+            BEM-VINDO AO <br /> EMPRESAS
+          </S.Title>
           <S.Description>
             Lorem ipsum dolor sit amet, contetur <br /> adipiscing elit. Nunc accumsan.
           </S.Description>
-          <Input type="email" name="email" placeholder="E-mail" />
-          <Input type="password" name="password" placeholder="Senha" />
+          <Input type="email" name="email" placeholder="E-mail" icon={IconEmail} />
+          <Input type="password" name="password" placeholder="Senha" icon={IconLock} />
           <SubmitButton text="Entrar" />
           <FormStatus />
         </S.Form>
@@ -79,4 +87,3 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
 }
 
 export default Login
-

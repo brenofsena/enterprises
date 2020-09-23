@@ -67,6 +67,7 @@ describe('RemoteLoadEnterpriseDetails', () => {
     }
     const httpResponse = await sut.load()
     await expect(httpResponse).toEqual({
+      enterprise_name: httpResult.enterprise_name,
       photo: httpResult.photo,
       description: httpResult.description,
     })

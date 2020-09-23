@@ -1,10 +1,15 @@
 import * as S from './styles'
 import React, { memo } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useLogout } from '@/presentation/hooks'
-import { Search } from '@/presentation/components'
-import LogoWhite from '@static/logo-white.png'
+import IconArrowLeft from '@static/icon-arrow-left.svg'
 
-const Header: React.FC = () => {
+type Props = {
+  enterpriseName: string
+}
+
+const Header: React.FC<Props> = ({ enterpriseName }: Props) => {
+  const { goBack } = useHistory()
   const logout = useLogout()
 
   const handleLogout = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
@@ -15,8 +20,13 @@ const Header: React.FC = () => {
   return (
     <S.Header>
       <S.Wrapper>
-        <S.LogoWhite src={LogoWhite} alt="Ioasys" title="Ioasys" />
-        <Search />
+        <S.Info>
+          <S.Back onClick={goBack}>
+            <img src={IconArrowLeft} />
+          </S.Back>
+          <S.Name>{enterpriseName}</S.Name>
+        </S.Info>
+
         <S.Logout>
           <a data-testid="logout" href="#" onClick={handleLogout}>
             Sair

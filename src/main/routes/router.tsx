@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Spinner, PrivateRoute } from '@/presentation/components'
 import { ApiContext } from '@/presentation/contexts'
 import { setCurrentAccountAdapter, getCurrentAccountAdapter } from '@/main/adapters'
-import { makeRemoteSearchEnterprises } from '@/main/factories/usecases'
 import { makeLogin, makeEnterpriseList, makeEnterpriseDetails } from '@/main/factories/pages'
 
 const Router: React.FC = () => {
@@ -12,7 +11,6 @@ const Router: React.FC = () => {
       value={{
         setCurrentAccount: setCurrentAccountAdapter,
         getCurrentAccount: getCurrentAccountAdapter,
-        searchEnterprises: makeRemoteSearchEnterprises,
       }}
     >
       <BrowserRouter>

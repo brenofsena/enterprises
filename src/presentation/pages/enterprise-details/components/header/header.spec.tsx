@@ -1,8 +1,8 @@
 import React from 'react'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory, MemoryHistory } from 'history'
-import { render, fireEvent,screen } from '@testing-library/react'
-import { Header } from '@/presentation/components'
+import { fireEvent, screen } from '@testing-library/react'
+import { HeaderDetails } from '@/presentation/pages/enterprise-details/components'
 import { ApiContext } from '@/presentation/contexts'
 import { AccountModel } from '@/domain/models'
 import { mockAccountModel } from '@/domain/test'
@@ -18,16 +18,18 @@ const makeSut = (account = mockAccountModel()): SutTypes => {
   const setCurrentAccountMock = jest.fn()
 
   renderWithTheme(
-    <ApiContext.Provider value={{ setCurrentAccount: setCurrentAccountMock, getCurrentAccount: () => account }}>
+    <ApiContext.Provider
+      value={{ setCurrentAccount: setCurrentAccountMock, getCurrentAccount: () => account }}
+    >
       <Router history={history}>
-        <Header />
+        <HeaderDetails enterpriseName="any_enterprise_name" />
       </Router>
-    </ApiContext.Provider>
+    </ApiContext.Provider>,
   )
 
   return {
     history,
-    setCurrentAccountMock
+    setCurrentAccountMock,
   }
 }
 

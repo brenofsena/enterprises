@@ -25,6 +25,7 @@ export class RemoteLoadEnterpriseDetails implements LoadEnterpriseDetails {
 
 export namespace RemoteLoadEnterpriseDetails {
   export type Model = {
+    enterprise_name: string
     photo: string
     description: string
   }
