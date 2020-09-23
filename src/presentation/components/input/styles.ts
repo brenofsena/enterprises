@@ -4,29 +4,29 @@ import { rem } from 'polished'
 export const InputWrap = styled.div`
   margin: 40px 0 0;
   position: relative;
-  border-bottom: 2px dashed ${props => props.theme.colors.disabledColor};
+  border-bottom: 2px solid ${(props) => props.theme.colors.disabledColor};
 
-  &[data-status="valid"] {
-    border-bottom-color: ${props => props.theme.colors.valid};
+  &[data-status='valid'] {
+    border-bottom-color: ${(props) => props.theme.colors.valid};
 
     &:after {
-      background: ${props => props.theme.colors.valid};
+      background: ${(props) => props.theme.colors.valid};
     }
   }
 
-  &[data-status="invalid"] {
-    border-bottom-color: ${props => props.theme.colors.invalid};
+  &[data-status='invalid'] {
+    border-bottom-color: ${(props) => props.theme.colors.invalid};
 
     &:after {
-      background: ${props => props.theme.colors.invalid};
+      background: ${(props) => props.theme.colors.invalid};
     }
   }
 
   &::after {
-    content: "";
+    content: '';
     width: 100%;
     height: 2px;
-    background: ${props => props.theme.colors.gray};
+    background: ${(props) => props.theme.colors.gray};
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -62,7 +62,7 @@ export const InputWrap = styled.div`
   label {
     position: absolute;
     left: 8px;
-    color: ${props => props.theme.colors.gray};
+    color: ${(props) => props.theme.colors.gray};
     cursor: text;
     transform-origin: 0%;
     transform: translateY(0);
