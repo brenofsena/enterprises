@@ -3,7 +3,7 @@ import { rem } from 'polished'
 
 export const Header = styled.header`
   display: flex;
-  background: ${props => props.theme.colors.mediumPink};
+  background: ${(props) => props.theme.colors.mediumPink};
   justify-content: center;
   width: 100%;
 `
@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
 `
 export const LogoWhite = styled.img`
   align-self: center;
+  max-width: 150px;
 `
 export const Logout = styled.div`
   display: flex;

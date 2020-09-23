@@ -1,6 +1,6 @@
 import React from 'react'
-import {  screen, fireEvent } from '@testing-library/react'
-import { EnterpriseItem } from '@/presentation/pages/home/components'
+import { screen, fireEvent } from '@testing-library/react'
+import { EnterpriseItem } from '@/presentation/pages/enterprise-list/components'
 import { mockRemoteEnterpriseModel } from '@/data/test'
 import { Router } from 'react-router-dom'
 import { createMemoryHistory, MemoryHistory } from 'history'
@@ -16,11 +16,11 @@ const makeSut = (enterprise = mockRemoteEnterpriseModel()): SutTypes => {
   renderWithTheme(
     <Router history={history}>
       <EnterpriseItem enterprise={enterprise} />
-    </Router>
+    </Router>,
   )
 
   return {
-    history
+    history,
   }
 }
 
@@ -28,9 +28,14 @@ describe('EnterpriseItem Component', () => {
   test('Should render with correct values', () => {
     const enterprise = mockRemoteEnterpriseModel()
     makeSut(enterprise)
-    expect(screen.getByTestId('image')).toHaveAttribute('src', `https://empresas.ioasys.com.br/${enterprise.photo}`)
+    expect(screen.getByTestId('image')).toHaveAttribute(
+      'src',
+      `https://empresas.ioasys.com.br/${enterprise.photo}`,
+    )
     expect(screen.getByTestId('name')).toHaveTextContent(enterprise.enterprise_name)
-    expect(screen.getByTestId('type-name')).toHaveTextContent(enterprise.enterprise_type.enterprise_type_name)
+    expect(screen.getByTestId('type-name')).toHaveTextContent(
+      enterprise.enterprise_type.enterprise_type_name,
+    )
     expect(screen.getByTestId('country')).toHaveTextContent(enterprise.city)
   })
 

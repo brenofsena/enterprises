@@ -11,10 +11,17 @@ const EnterpriseItem: React.FC<Props> = ({ enterprise }: Props) => {
   return (
     <S.Item>
       <S.Anchor data-testid="link" to={`/empresas/${enterprise.id}`}>
-        <S.Image data-testid="image" src={`https://empresas.ioasys.com.br/${enterprise.photo}`} alt={enterprise.enterprise_name} title={enterprise.enterprise_name} />
+        <S.Image
+          data-testid="image"
+          src={`https://empresas.ioasys.com.br/${enterprise.photo}`}
+          alt={enterprise.enterprise_name}
+          title={enterprise.enterprise_name}
+        />
         <S.Description>
           <S.Name data-testid="name">{enterprise.enterprise_name}</S.Name>
-          <S.TypeName data-testid="type-name">{enterprise.enterprise_type.enterprise_type_name}</S.TypeName>
+          <S.TypeName data-testid="type-name">
+            {enterprise.enterprise_type.enterprise_type_name}
+          </S.TypeName>
           <S.Country data-testid="country">{enterprise.city}</S.Country>
         </S.Description>
       </S.Anchor>

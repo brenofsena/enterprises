@@ -6,7 +6,7 @@ export const Item = styled.li`
   height: 215px;
   background: #fff;
   list-style: none;
-  border-radius: 8px;
+  border-radius: 4.7px;
   margin-bottom: 24px;
   box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.3);
   padding: ${rem('16px')};
@@ -38,18 +38,18 @@ export const Description = styled.article`
 
 export const Name = styled.h2`
   font-size: ${rem('30px')};
-  font-weight: ${props => props.theme.font.bold};
+  font-weight: ${(props) => props.theme.font.bold};
   color: #1a0e49;
 `
 
 export const TypeName = styled.span`
-  font-size:${rem('24px')};
-  font-weight: ${props => props.theme.font.regular};
+  font-size: ${rem('24px')};
+  font-weight: ${(props) => props.theme.font.regular};
   color: #8d8c8c;
 `
 
 export const Country = styled.span`
   font-size: ${rem('18px')};
-  font-weight: ${props => props.theme.font.regular};
+  font-weight: ${(props) => props.theme.font.regular};
   color: #8d8c8c;
 `
