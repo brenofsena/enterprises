@@ -1,5 +1,5 @@
 export interface LoadEnterprises {
-  loadAll: () => Promise<LoadEnterprises.Model[]>
+  loadAll: (search?: string) => Promise<LoadEnterprises.Model[]>
 }
 
 export namespace LoadEnterprises {

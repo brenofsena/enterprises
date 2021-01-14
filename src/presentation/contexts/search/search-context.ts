@@ -1,8 +1,8 @@
-import { SearchEnterprises } from '@/domain/useCases'
+import { LoadEnterprises } from '@/domain/useCases'
 import { createContext } from 'react'
 
 type Props = {
-  searchEnterprises?: SearchEnterprises
+  searchEnterprises?: LoadEnterprises
   setEnterprises?: (state: any) => void
   handleError?: (error: Error) => void
 }
