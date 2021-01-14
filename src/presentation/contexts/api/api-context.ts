@@ -1,6 +1,5 @@
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 import { AccountModel } from '@/domain/models'
-import { SearchEnterprises } from '@/domain/useCases'
 
 type Props = {
   getCurrentAccount?: () => AccountModel

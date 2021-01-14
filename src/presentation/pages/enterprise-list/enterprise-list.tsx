@@ -2,16 +2,15 @@ import * as S from './styles'
 import React, { useEffect, useState } from 'react'
 import { Header, Error } from '@/presentation/components'
 import { EnterpriseListItem } from '@/presentation/pages/enterprise-list/components'
-import { LoadEnterprises, SearchEnterprises } from '@/domain/useCases'
+import { LoadEnterprises } from '@/domain/useCases'
 import { useErrorHandler } from '@/presentation/hooks'
 import { SearchContext } from '@/presentation/contexts'
 
 type Props = {
   loadEnterprises: LoadEnterprises
-  searchEnterprises: SearchEnterprises
 }
 
-const EnterpriseList: React.FC<Props> = ({ loadEnterprises, searchEnterprises }: Props) => {
+const EnterpriseList: React.FC<Props> = ({ loadEnterprises }: Props) => {
   const [state, setState] = useState({
     enterprises: [] as LoadEnterprises.Model[],
     error: '',
@@ -37,7 +36,9 @@ const EnterpriseList: React.FC<Props> = ({ loadEnterprises, searchEnterprises }:
 
   return (
     <S.Wrapper>
-      <SearchContext.Provider value={{ setEnterprises: setState, searchEnterprises, handleError }}>
+      <SearchContext.Provider
+        value={{ setEnterprises: setState, searchEnterprises: loadEnterprises, handleError }}
+      >
         <Header />
 
         <S.ContentWrapper>

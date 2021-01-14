@@ -15,7 +15,7 @@ const Search: React.FC = () => {
     setIsSearching(true)
 
     searchEnterprises
-      .search(search)
+      .loadAll(search)
       .then((response) => {
         const { enterprises }: any = response
         setEnterprises({ enterprises, error: '', reload: false })
